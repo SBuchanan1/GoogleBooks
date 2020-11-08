@@ -23,16 +23,12 @@ const AuthorSchema = new Schema(
   { toJSON: { virtuals: true } }
 );
 
-// userSchema.virtual("domain").get(function () {
-//   return this.email.slice(this.email.indexOf("@") + 1);
-// });
+
 AuthorSchema.virtual("fullName").get(function () {
   return `${this.firstName} ${this.lastName}`;
 });
 
-// AuthorSchema.virtual("numBooks").get(function(){
-//     return this.books.length;
-// })
+
 
 const Author = mongoose.model("Author", AuthorSchema);
 
